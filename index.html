@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Square Finder App by Avanish</title>
+    <link rel="stylesheet" href="./app.css" />
+  </head>
+  <body>
+    <center>
+      <div class="nav">
+        <a href="index.html">
+          <img src="home.png" alt="home Image" />
+          Home
+        </a>
+        <a href="about.html">
+          <img src="about.png" alt="about Image" />
+          about
+        </a>
+      </div>
+      <h1>Square Finder App</h1>
+
+      <form onsubmit="square()">
+        <input type="number" id="num" placeholder="Enter a number" step="any" />
+        <br />
+        <br />
+        <input type="submit" value="Check Even Odd" />
+      </form>
+      <h2 id="msg"></h2>
+    </center>
+    <script>
+      function square() {
+        event.preventDefault();
+        const numInput = document.getElementById("num");
+        const msgElement = document.getElementById("msg");
+
+        if (numInput.value === "") {
+          alert("Please enter an integer");
+          msgElement.innerHTML = "";
+          numInput.focus();
+          return;
+        }
+        let n = parseFloat(numInput.value);
+        let r = Math.pow(n, 2);
+        localStorage.setItem("res", r);
+        window.location.href = "result.html";
+      }
+    </script>
+  </body>
+</html>
